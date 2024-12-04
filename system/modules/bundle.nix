@@ -1,0 +1,31 @@
+{
+  imports = [
+    ./bootloader.nix
+    ./sound.nix
+    ./zram.nix
+    ./zsh.nix
+    ./user.nix
+    ./xserver.nix
+    ./nm.nix
+    ./vfio.nix
+    ./wm/plasma6.nix
+    ./trim.nix
+    ./bluetooth.nix
+    ./nvidia.nix
+    ./acer-kernel.nix
+    ./optimize.nix
+    ./firewall.nix
+    ./security.nix
+    ./systemd.nix
+    ./substituters.nix
+    ./irqbalance.nix
+    #./distrobox.nix
+    ./customs-pkgs/overlay.nix
+    ./customs-pkgs/v2rayA.nix
+    ./customs-pkgs/steam.nix
+    ./customs-pkgs/libreoffice.nix
+    #./customs-pkgs/waydroid.nix
+    ./customs-pkgs/flatpak.nix
+    ./customs-pkgs/adb.nix
+  ];
+}

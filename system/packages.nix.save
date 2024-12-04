@@ -1,0 +1,106 @@
+{ pkgs, ... }: {
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = ["python-2.7.18.8" "electron-25.9.0"];
+  };
+
+  environment.systemPackages = with pkgs; [
+    # Desktop apps
+    firefox
+    #figma-agent
+    #google-chrome
+    telegram-desktop
+    prismlauncher
+    nekoray
+    vlc
+    vesktop
+    looking-glass-client
+    vscode
+    qbittorrent
+    gparted
+    #kdiskmark
+
+    # Coding stuff
+    #gnumake
+    #gcc
+    nodejs
+    scrcpy
+
+    # CLI utils
+    neofetch
+    fastfetch
+    f2fs-tools
+    lsof
+    wget
+    git
+    htop
+    nix-index
+    unzip
+    mediainfo
+    zram-generator
+    cava
+    p7zip
+    zip
+    unrar
+    ntfs3g
+    python3
+    virtiofsd
+    openssl
+    wireguard-tools
+
+    # Sound
+    pipewire
+    pamixer
+
+    # GPU stuff 
+    amdvlk
+
+    # Doas to sudo
+    doas-sudo-shim
+
+  ];
+
+  fonts = {
+    packages = with pkgs; [
+      material-icons
+      material-design-icons
+      roboto
+      arkpandora_ttf
+      work-sans
+      comic-neue
+      source-sans
+      twemoji-color-font
+      comfortaa
+      inter
+      lato
+      lexend
+      jost
+      dejavu_fonts
+      iosevka-bin
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      corefonts
+      jetbrains-mono
+      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
+    ];
+    
+    fontDir.enable = true;
+    enableDefaultPackages = false;
+
+    # this fixes emoji stuff
+    fontconfig = {
+      defaultFonts = {
+        monospace = [
+          "Iosevka Term"
+          "Iosevka Term Nerd Font Complete Mono"
+          "Iosevka Nerd Font"
+          "Noto Color Emoji"
+        ];
+        sansSerif = ["Lexend" "Noto Color Emoji"];
+        serif = ["Noto Serif" "Noto Color Emoji"];
+        emoji = ["Noto Color Emoji"];
+      };
+    };
+  };
+}
